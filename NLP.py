@@ -247,19 +247,6 @@ dtree_cv.fit(x_train, y_train)
 #best patameters from decision tree
 dtree_cv.best_params_
 
-# def Decision_Tree(a):
-#     for depth in a:
-#         dt = DecisionTreeClassifier(max_depth=depth)
-#         #Fitting dt to training data
-#         dt.fit(x_train, y_train)
-#         #Accuracy
-#         Train_acc = accuracy_score(y_train, dt.predict(x_train))
-#         dt = DecisionTreeClassifier(max_depth=depth)
-#         Val_acc = cross_val_score(dt, x_train, y_train, cv = cv)
-#         print("Depth :", depth, "Training accuracy :", Train_acc, "Cross Val Score :", mean(Val_acc))
-
-# Decision_Tree([1,2,3,4,5,6,7,8,9,10])
-
 #Fitting the best model
 steps = [('sampling', RandomOverSampler(sampling_strategy=1)), ('model', DecisionTreeClassifier(max_depth = None, criterion='entropy', max_leaf_nodes=20, min_samples_leaf=4, min_samples_split=2))]
 pipe = Pipeline(steps=steps)
